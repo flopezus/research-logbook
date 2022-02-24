@@ -1,0 +1,52 @@
+\subsection{Sistemas de adquisión de datos (DAQ)}
+
+\begin{enumerate}
+\item \textbf{Dead time}: Para un sistema de detección, es el tiempo mínimo de separación de dos eventos para que sean medidos como dos pulsos independientes. En algunos casos las limitaciones para este tiempo mínimo está determinada por los procesos en el detector mismo y en otros casos este límite está asociado a la electrónica del sistema de detección.
+
+\item \textbf{Gain}
+
+\item \textbf{Rango dinámico (de una señal)}
+
+\item \textbf{Sampleo} La tarjeta digitalizadora samplea a 62.5 MHz (max 125 MHz), lo cual sirve para guardar el EFIR, obteniendo así una buena resolución en el espectro de altura de pulso, pero para guardar samples (pulsos) al samplear con esta frecuencia estaríamos sobre sampleando la señal, lo cuál se traduce en una mayor información digitalizada por sample, es decir, a un mayor tamaño del archivo .dlt. Es por esta razón, que para el experimento de neutrones pulsados se utilizó un clock externo que sampleaba la señal a 25 MHz.
+
+\item \textbf{Ancho de ventana de adquisición de samples} Para la tarjeta digitalizadora Struck SIS3316-125-16, se tiene que cada bin corresponde a un ancho de tiempo de 40 ns, de esta manera, para un signal length (en GASIFIC) de $2^{16}-1=65535$ se tiene que la máxima ventana posible de adquisición de una señal (sample, para disparos) corresponde a $40 \phantom{!} \text{ns} \times 2^{16}-1  \approx 2.6 \phantom{!} \text{ms} $. Luego para movies (samples de neutrones de fondo) no necesitamos una ventana tan ancha de adquisición, ya que nos importa más la subida (para hacer el análisis de rise time usando TDC), de esta manera, para un signal length de $5000$ en GASIFIC, tenemos que la ventana de adquisición corresponde a $40 \phantom{!} \text{ns} \times 5000  \approx 0.2 \phantom{!} \text{ms} \phantom{@} (200 \mu s) $, la cuál es suficiente para capturar la forma de la subida de la señal.
+\end{enumerate}
+
+
+\subsection{Física Nuclear}
+
+\begin{enumerate}
+
+\item \textbf{Material Fisible}: $^{235}$U
+
+\item \textbf{Material Fisionable} $^{238}$U
+
+\item \textbf{Eficiencia Intrínseca de detección (
+$\varepsilon_{int}$)}: Corresponde a la probabilidad de detectar una partícula en un detector. No depende de la distancia a la fuente. 
+
+\item \textbf{Eficiencia Absoluta de detección ($\varepsilon_{abs}$)}: Corresponde a la probabilidad de detectar una partícula emitida desde la fuente. Depende de la distancia fuente-detector.\\
+\begin{align}
+\varepsilon_{abs}=\varepsilon_{int} \frac{\Omega}{4\pi}
+\end{align}
+
+\item \textbf{Neutron Recoil}
+
+\item \textbf{Flujo diferencial:}
+
+\cprotEnv \begin{align}
+\frac{d\Phi}{dE} \longrightarrow \verb|Flux[i]| =  \verb|Seed[i]| /\verb|dE[i]| 
+\end{align}
+
+\item \textbf{ Flujo integral:}
+
+\cprotEnv \begin{align}
+\frac{d\Phi}{dE}\cdot{dE} \rightarrow \verb|Flux[i]|= (\verb|Seed[i] |/\verb|dE[i]|) \verb|*dE[i]|
+\end{align}
+
+\subsection{Términos Matemáticos}
+\item \textbf{Skewness}: Es el tercer momento estándar de una distribución de probabilidad y da cuenta de la asimetría de esta. El grado de asimetría de una distribución se denomina sesgo hacia la derecho o hacia la izquierda
+
+
+
+
+\end{enumerate}
