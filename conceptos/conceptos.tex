@@ -21,8 +21,7 @@
 
 \item \textbf{Material Fisionable} $^{238}$U
 
-\item \textbf{Eficiencia Intrínseca de detección (
-$\varepsilon_{int}$)}: Corresponde a la probabilidad de detectar una partícula en un detector. No depende de la distancia a la fuente. 
+\item \textbf{Eficiencia Intrínseca de detección ($\varepsilon_{int}$)}: Corresponde a la probabilidad de detectar una partícula en un detector. No depende de la distancia a la fuente. 
 
 \item \textbf{Eficiencia Absoluta de detección ($\varepsilon_{abs}$)}: Corresponde a la probabilidad de detectar una partícula emitida desde la fuente. Depende de la distancia fuente-detector.\\
 \begin{align}
@@ -43,7 +42,17 @@ $\varepsilon_{int}$)}: Corresponde a la probabilidad de detectar una partícula 
 \frac{d\Phi}{dE}\cdot{dE} \rightarrow \verb|Flux[i]|= (\verb|Seed[i] |/\verb|dE[i]|) \verb|*dE[i]|
 \end{align}
 
-\subsection{Términos Matemáticos}
+\subsection{Física de Plasmas}
+
+\item \textbf{Drive parameter}: Este parámetro se define como:
+\begin{align}
+{\displaystyle {\frac {I}{a{\sqrt {\rho}}}}}
+\end{align}
+donde ${\displaystyle I}$ es la corriente, ${\displaystyle a}$ es el radio del ánodo, y ${\displaystyle \rho}$ es la densidad de gas o presión.\\
+Es proporcional a la velocidad del plasma tanto en su fase axial como radial. Es uno de los parámetros más importantes que determina el rendimiento de un
+PF como fuente de neutrones de fusión. Su valor constante en una amplia gama de PF's indica realmente que todos estos dispositivos funcionan a las mismas velocidades axial y radial y, por lo tanto, por inferencia, todos tienen las mismas temperaturas en las fases axial y radial \cite{Zhang2006} .
+\item \textbf{Pinch lifetime ($t_{pf}$)}: Definido como el tiempo desde la primera compresión a un radio mínimo hasta el momento de la ruptura violenta de la columna de plasma. Con valores entre decenas de ns a 100-200 ns \cite{SingLee1996}. De acuerdo a CP, el $t_{pf}$ del PF400J es de 3 a 4 ns.
+\subsection{Estadística}
 \item \textbf{Skewness}: Es el tercer momento estándar de una distribución de probabilidad y da cuenta de la asimetría de esta. El grado de asimetría de una distribución se denomina sesgo hacia la derecho o hacia la izquierda
 
 

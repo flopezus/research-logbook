@@ -66,7 +66,6 @@ cuyo contenido es el siguiente:
 
 el cual a la fecha de la presente entrada, tiene 12 commits siendo el último de SHA \verb|4582213d| con nombre de commit ``Se crearon los BRANCHES'', donde se modifica el archivo de nombre \verb|sapito_tree.C| el cual es un programa que genera un archivo \verb|.root| llamado \verb|sapito_shot.root|. Este es un archivo con estructura tipo TTree, que representa un conjunto de datos en forma de columnas (que en la jerga de \textit{root} se le llama también \textit{tree}), donde cualquier tipo de variable de \verb|C++| puede ser almacenado en sus columnas. Este \textit{tree} de nombre \verb|T|, posee 16 \textit{branches} (ramas o columnas). Las cuales son mostradas a continuación como extracto del código.
 
-
 \begin{lstlisting}[language=C++]
 /*ANALYSIS PARAMETERS*/
   Int_t shot;
@@ -1500,7 +1499,7 @@ Instrucciones para su ejecución:
 \item \verb|.L InitVar.cc++|
 \item \verb|.L ANPulses.cc++|
 \item \verb|.L neutron_sim_generator.C|
-\item \verb|neutron_sim_generator_merge_fluxinvG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.01 o 10 keV, com un máximo de 1.49.
+\item \verb|neutrones_sim_generator_merge_fluxinvG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.01 o 10 keV, com un máximo de 1.49.
 \item \verb|.L deconvoluciones.C|
 \item \verb|neutrones_deconv_11()|: 
 Input: \verb|neutrones_calculados_merge.dat| Output:  \verb|chi2_test.dat|.
@@ -1575,7 +1574,7 @@ Instrucciones para su ejecución:
 \item \verb|.L InitVar.cc++|
 \item \verb|.L ANPulses.cc++|
 \item \verb|.L neutron_sim_generator.C|
-\item \verb|neutron_sim_generator_merge_fluxinvG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.01 o 10 keV, con un máximo de 1.49.
+\item \verb|neutrones_sim_generator_merge_fluxinvG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.01 o 10 keV, con un máximo de 1.49.
 \item \verb|.L deconvoluciones.C|
 \item \verb|neutrones_deconv_21()|: 
 Input: \verb|neutrones_calculados_merge.dat| Output:  \verb|chi2_test.dat|.
@@ -1670,11 +1669,12 @@ Instrucciones para su ejecución:
 \item \verb|.L InitVar.cc++|
 \item \verb|.L ANPulses.cc++|
 \item \verb|.L neutron_sim_generator.C|
-\item \verb|neutron_sim_generator_merge_fluxinvAG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.05 o 50 keV, tanto como para el ancho izquierdo y derecho. Así, fijamos primero el ancho izquierdo en 0.05 y el ancho derecho aumenta en pasos de 0.05 comenzando desde 0.05 hasta el valor máximo de 0.7. Una vez logrado este valor para el ancho derecho, aumentamos el ancho izquierdo en 0.05 e iniciamos nuevamente con la variación del ancho derecho. La iteración termina cuando ambos anchos logren el máximo de 0.7 
+\item \verb|neutrones_sim_generator_merge_fluxinvAG()|: Se genera el archivo \verb|neutrones_calculados_merge.dat| con los neutrones calculados asociados a un disparo (ancho determinado) y sistema de detección. Los pasos de ancho para el flujo corresponden a 0.05 o 50 keV, tanto como para el ancho izquierdo y derecho. Así, fijamos primero el ancho izquierdo en 0.05 y el ancho derecho aumenta en pasos de 0.05 comenzando desde 0.05 hasta el valor máximo de 0.7. Una vez logrado este valor para el ancho derecho, aumentamos el ancho izquierdo en 0.05 e iniciamos nuevamente con la variación del ancho derecho. La iteración termina cuando ambos anchos logren el máximo de 0.7 
 \item \verb|.L deconvoluciones.C|
 \item \verb|neutrones_deconv_22()|: 
 Función que realiza las deconvoluciones utilizando semillas gaussianas asimétricas (2) y flujos inventados gaussianos asimétricos (2). En ambas distribuciones los pasos de energía para las iteraciones pueden ser ajustados. Se usaron pasos de 0.05 o 50 keV para las anchos izquierdo y derecho de los flujos semilla asimétricos (como máximo 0.7 por cada lado). Se genera entonces el archivo \verb|chi2_test.dat| donde los datos de las columnas corresponden a (visto como vector en c++) a lo mostrado en la entrada del \ref{2021-12-23}.
 
+\item \verb|neutrones_deconv_plot_22()|:\\
 Input: \verb|neutrones_calculados_merge.dat| Output:  \verb|chi2_test.dat|.
 \end{itemize}
 
@@ -1926,6 +1926,7 @@ Obteniendo:
 En la vecindad de $\alpha=0$ la variación de $\gamma_1$ es pequeña. Luego desde $\alpha=0.5$ la función crece (y decrece) de manera rápida tipo logaritmo, hasta lograr un valor permanente cercano a 1 y -1 respectivamente.
 
 \section{Entrada del 2022-01-13}
+\label{2022-01-13}
 
 Luego de haber explorado las distribuciones skew normal definidas con la librería \verb|math| de \verb|boost|, las utilizaremos para repetir las simulaciones 21 y 22, con variaciones de $\gamma_{0}$ que se correspondan con un solo valor de $\sigma_{inv}$ y variaciones de $\gamma_{0}$ que se correspondan con un solo valor de $\gamma_{inv}$ respectivamente.
 
@@ -2077,7 +2078,7 @@ El archivo de salida de salida de la simulación 31 de nombre \verb|chi2_test.da
 Instrucciones para su ejecución:
 
 \begin{itemize}
-\item \verb|ulimit -n 20000|: donde 18029  es el número total de filas en \verb|chi2_test.dat| (121 distribuciones semillas $\times$ 149 distribuciones gaussianas inventadas, es decir, por cada distribución inventada se itera (deconvoluciona) usando una semilla, generando un total de $121 \times 149=18029$ iteraciones.)
+\item \verb|ulimit -n 15000|: donde 14641  es el número total de filas en \verb|chi2_test.dat| (121 distribuciones semillas $\times$ 121 distribuciones skew normal inventadas, es decir, por cada distribución inventada se itera (deconvoluciona) usando una semilla, generando un total de $121 \times 121=14641$ iteraciones.)
 \item \verb|root -l|
 \item \verb|.L InitVar.cc++|
 \item \verb|.L ANPulses.cc++|
@@ -2181,6 +2182,7 @@ Los mapas de calor generados por la simulación 33 son los siguientes:
 \end{figure}
 
 
+
 Antes de continuar, revisando el código, se encontró en la línea 1883 de la clase \verb|ANPulses.cc| de la última actualización del repositorio en gitlab, en específico en la función \verb|Pretty_EMsimple_em1()|, una doble definición de \verb|chi2_em2|:
 
 \begin{lstlisting}[language=c++]
@@ -2189,7 +2191,7 @@ Antes de continuar, revisando el código, se encontró en la línea 1883 de la c
 
 En  principio la única repercusión que debería tener es en el tiempo de ejecución del código, ya que hace un cálculo repetido e innecesario. Por lo tanto, en la actualización siguiente del repositorio se elimina la definición repetida.
 
-\subsection*{Entrada del 2022-01-14}
+\section{Entrada del 2022-01-14}\label{2022-01-14}
 
 De la Fig. \ref{plot_deconv_33_tgraph_skewness} podemos ver en el pad21 que los menores valores de $\chi_c^2$ corresponden a la diagonal, esto es así ya que el método de la maximización de la expectación obtiene un mejor resultado de flujo deconvolucionado cuando la semilla es muy parecida al flujo inventado.
 
@@ -2198,6 +2200,187 @@ De la Fig. \ref{plot_deconv_33_tgraph_skewness} podemos ver en el pad21 que los 
 Se muestran los resultados obtenidos de las simulaciones 31 (Fig. \ref{plot_deconv_31_tgraph_skewness}) y 33 (Fig. \ref{plot_deconv_31_tgraph_skewness}). Se comenta la extraña discontinuidad que se ve en el pad 21 de la Fig. \ref{plot_deconv_31_tgraph_skewness}, una de las posibles causas de esta es que al definir un valor de shape $\alpha$ para cada flujo semilla ( y por lo tanto un valor de skewness $\gamma$ asociado) se está moviendo al mismo tiempo tanto el centroide de la distribución (la moda para una distribución skew normal) como la amplitud de la distribución semilla (ver Fig. \ref{skew_normal_histogram_test_2}). Es decir, estamos observando el efecto en el algoritmo EM para el flujo deconvolucionado con respecto de la variación de dos valores, cuando en principio queremos estudiar el efecto de una sola variación, que es la deformación o skewness de la distribución semilla.
 
 El profesor VM sugiere utilizar la nomenclatura de \textit{momentos} para referirnos a las propiedades de una distribución, como lo son: la media, varianza y skewness. También se sugiere seguir explorando en aplicar algoritmos de redes neuronales para obtener el flujo de neutrones medido por los detectores.
+
+\section{Entrada del 2022-02-24}\label{2022-02-24}
+Actualización del fork del \verb|research-logbook| en github hasta la entrada anterior (\ref{2022-01-14}):
+\begin{itemize}
+\item Repositorio: \url{https://github.com/flopezus/research-logbook} 
+\item commit: \verb|9a2493fba25f0f103e1009ca5d29136ff92de778|
+\end{itemize}
+
+\section{Entrada del 2022-02-25}\label{2022-02-25}
+Se realizó una actualización del repositorio \verb|class-anpulses| en gitlab con las modificaciones más recientes:
+
+\begin{itemize}
+\item[•] \verb|ANPulses.cc| commit \verb|8cb306b84528f87fae1ec5ec06c3d83474fb94a5|: Se agrega el header de boost para usar sus librerías, en especifico la distribución skew normal de la librería math. En \verb|SeedGenerator()| se agrega una nueva opcion (3) para dist, la cual genera un histograma usando la distribución skew normal. En \verb|Pretty_EMsimple_em1()| se agregan nuevas salidas al archivo \verb|chi2_test.dat|, que dan cuenta de las simulaciones 31 y 33.
+\item[•] \verb|deconvoluciones.C| commit \verb|56ddde7b6feeb905f6cd1f56b6868dfc8fad8bcf|: Se agrega la función \verb|neutrones_deconv_plot_21_debug()| para debugear. \\
+Se agregan las funciones \verb|neutrones_deconv_31_skewnormal()| y \verb|neutrones_deconv_33_skewnormal()|, las cuales realizan las deconvoluciones usando la opcion dist=3 en \verb|Pretty_EMsimple_em1()|. Se agregan las funciones \verb|neutrones_deconv_plot_31_tgraph()| y \verb|neutrones_deconv_plot_33_tgraph()| para graficar los mapas de calor de las simulaciones 31 y 33.
+Además se agregan las funciones \verb|neutrones_deconv_22()| y \verb|neutrones_deconv_plot_22()|.\\
+ Así como también la función \verb|neutrones_deconv_plot_21_tgraph()|.
+\item[•] \verb|readme| commit \verb|4ae18483cc0795f1f80fc143e472298382a96fe8|: Actualización de las instrucciones para realizar las simulaciones 11, 21, 22, 31 y 33.
+
+\item[•] \verb|neutron_sim_generator.C| commit \verb|430748499a4ee349655b3808c4568e4b8a20ea79|: Se agrega la función \verb|neutrones_sim_generator_merge_skewnormal_L()| para generar neutrones correspondientes a distribuciones asimetricas del tipo skew normal.\\
+ Se agrega la función \verb|neutrones_sim_generator_merge_skewnormal_L_test()| para realizar pruebas (graficos).
+\item[•]\verb|test.C| commit \verb|4477a70ee237dac30ffba2201d0298269338187c|: Actualización de pruebas.
+\item[•] \verb|skew_normal.C| commit \verb|b3b998268e8f2c67a19e1701a5b0826526a64481|: Se agrega esta nueva macro con pruebas del conjunto de librerías boost.
+\item[•] Se agregan los archivos:
+\begin{itemize}
+\item[•]\verb|chi2_test_deconv_21_fail.dat|
+\item[•] \verb|chi2_test_deconv_22_fail.dat|
+\item[•]\verb|chi2_test_deconv_12.dat|
+\item[•]\verb|chi2_test_deconv_11.dat|
+\item[•]\verb|chi2_skewnormal_33_allst.dat|
+\item[•]\verb|chi2_skewnormal_31_allst.dat|
+\end{itemize}
+\item[•] \verb|neutrones_calculados/deconv|: Se agregan los archivos de neutrones calculados correspondientes a distribuciones gaussianas, gausianas asimetricas y skew normal:
+\begin{itemize}
+\item[•]\verb|neutrones_calculados/deconv/neutrones_calculados_merge_fluxinv_G.dat|
+\item[•]\verb|neutrones_calculados/deconv/neutrones_calculados_merge_fluxinv_AG.dat|
+\item[•]\verb|neutrones_calculados/deconv/neutrones_calculados_merge_skewnormal.dat|
+\end{itemize}
+\item[•] \verb|img|: Se agrega esta carpeta conteniendo un repositorio de imágenes de los mapas de calor de las distintas simulaciones.
+\item[•] \verb|objets_debug_test.dat|: Se agrega este archivo de prueba que es salida de la función\\
+ \verb|neutrones_deconv_plot_21_debug()| de la macro \verb|deconvoluciones.C|, para comprobar si es que hay repeticiones de los valores del skewness en la simulación 21.
+\item[•]\verb|objets_debug.dat|: Se agrega este archivo que se genera en \verb|Pretty_EMsimple_em1()| con la salida de distintos objetos del algoritmo: Anchos de bins de energía, Flujo semillla, Eficiencias absolutas, etc. Sirve para debugear.
+\end{itemize}
+
+Tratar de hacer un gráfico de pasos (it) versus valor del error del metodo em1 $\chi^2$ (para descartar un overfitting del metodo.)
+
+\section{Entrada del 2022-03-03}\label{2022-03-03}
+
+Si queremos que los flujos inventados tengan la misma amplitud para las distribuciones gaussianas y gaussianas asimetricas no hay que normalizar por el área (no hacer scale de root al histograma en el código). Para los flujos del tipo skew normal, tenemos que establecer el parámetro scale ($\omega$) de tal forma que esté relacionado con el valor de varianza de la distribuciones gaussianas con las que se quiere comparar.
+
+Tenemos que para una distribución skew normal, la varianza se escribe como 
+
+\begin{align}
+\sigma^2 = \omega^2 \left(\frac{\alpha}{\sqrt{1+\alpha^2}} \right)
+\end{align}
+
+Luego si el shape es cero, es decir, $\alpha =0$, entonces tenemos una distribución normal.
+
+Pero, en realidad ¿la amplitud de los flujos de neutrones es un parámetro importante a considerar en las simulaciones?. El PF por disparo emite cierto número de neutrones, los cuáles se relacionan con la distribución o flujo inicial mediante el valor de la integral total de esta distribución, es decir, si aumento la amplitud del flujo generador voy a tener mayor número de neutrones, pero el aumento del número de neutrones es proporcional al aumento de esta amplitud. Entonces, en realidad el parámetro fundamental es la integral total, ya que esta me determina el número de neutrones emitidos. Entonces, si queremos estudiar cuál es el efecto de un cambio en el ancho de a distribución semilla en el flujo deconvolucionado, no es necesario que todas tengan la misma amplitud, si no que es importar normalizar las integrales.
+
+Para mantener la misma moda de todas las distribuciones skew normal (semillas) de la librería boost en función de distintos parámetros de skewness (ya que quiero variar solo el ancho de la distribución) hay varias posibles soluciones. Una es trasladar toda la distribución a la moda de la distribución gaussiana generadora. Esto es, establecer a que bin corresponde la moda de la distribución skew normal, establecer el bin de la moda de la gaussiana (la cual está centrada en 2.5), luego calcular la diferencia entre esos bines y trasladar todo el bineado del vector skew normal (a la derecha o izquierda) con respecto a este valor ese valor.
+
+\section{Entrada del 2022-03-07}\label{2022-03-07}
+El método de las esferas de Bonner para determinar el espectro de energía de un campo neutrónico, tiene varias ventajas y desventajas \cite{Thomas2002}, siendo las dos desventajas principales: la pobre resolución en energía y los problemas al hacer el unfolding. Para el primero, un sistema ideal tiene que tener tantos detectores como regiones de energía (para que la matriz sea cuadrada y por lo tanto resoluble de manera única), por ejemplo, si queremos resoluciones de 100 keV hasta el valor de energía de 14 MeV, se requieren 140 detectores (cada uno con una función respuesta distinta). Por lo que la resolución de energía es insalvable, sin embargo, al compararla con la técnica de tiempo de vuelo, esta dificultad se ve mejor frente a la incertidumbre del tiempo cero de medición que necesita el tof (que generalmente viene de las señales de rayos x duros), ya que hay indicios de emisión de neutrones incluso en las etapas anteriores a la máxima compresión del plasma (Cristián Pavez, buscar referencias). Ver en que etapa se producen los rayos x que el tof toma como tiempo cero.
+
+Para la calibración de los detectores proporcionales de manera de obtener del yield de neutrones, no se usará la metodología de Ariel-Tarifeño que dependen de calibraciones anteriores \cite{tarifeno2014} (como yo pensaba) si no que la reducción de las incertezas vienen de la mano de conocer bien las funciones respuesta de detección de cada detector.
+
+\section{Entrada del 2022-03-11}\label{2022-03-11}
+
+Los histogramas usados en el algoritmo de maximización de la expectación si tienen el bineado de las eficiencias generadas con GEANT4 (al generarlos se copia el bineado). Esto es, isololetargico hasta el valor 8 del eje x (no el número de bin), luego lineal.
+
+\section{Entrada del 2022-03-15}\label{2022-03-15}
+
+Las actualizaciones realizadas al código hasta ahora son las siguientes:
+
+Dado que teníamos el problema de que al generar flujos usando la distribución skew normal de las librerías boost, las posiciones de los centroides variaban (con respecto al valor 2.5) para distintos valores de forma $\alpha$ (ver Fig \ref{skew_normal_histogram_test_2}). 
+Para arreglar esto, se prueba una posible solución en la macro \verb|test.C| mediante la función \verb|dist_inv_test()|. Con esta generamos todos los tipos de distribuciones implementadas en la clase \verb|ANPulses.cc|, y las mostramos en un canvas, de manera independiente y en superposición. También se genera un segundo canvas donde se muestra  en el pad superior dos distribuciones skew normal de distinto $\alpha$ superpuestas, dando cuenta de su distinto centroide (para igual parámetro $\omega$ y $\xi$). Luego en el pad inferior se muestra la implementación de la traslación de una la distribución skew normal con respecto del centroide de la distribución gaussiana, para que así ambas queden centradas en el mismo valor.
+
+Entonces, la salida gráfica de \verb|dist_inv_test()| corresponde a:
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/salida_dist_inv_test_c1.png}
+    \centering
+     \cprotect\caption{Canvas 1 con las distintas distribuciones.} 
+\label{plot_salida_dist_inv_test_c1}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/salida_dist_inv_test_c2.png}
+    \centering
+     \cprotect\caption{Canvas 2 con la comparación de la traslación.} 
+\label{plot_salida_dist_inv_test_c2}
+\end{figure}
+
+Además, con respecto al canvas 2, la función muestra en el terminal el número de bin cuyo contenido es el máximo para cada distribución y la posición en el eje $x$ del bin máximo, esto antes y después de la traslación:
+
+\begin{lstlisting}
+...
+ binmax gaussian dist: 26
+ x position of maximum content G 2.55
+ binmax skew normal dist: 28
+ x position of maximum content G 2.75
+AFTER SHIFT
+ binmax skew normal dist: 26
+ x position of maximum content  2.55
+\end{lstlisting}
+
+Como vemos, esta solución arregla el problema del movimiento del centroide para las distribuciones skew normal, por lo que lo implementaremos en la clase \verb|ANPulses.cc|.
+
+A continuación mostramos el gráfico asociado a la salida de (Simulación 11):
+\begin{lstlisting}[language=c++]
+Pretty_EMsimple_em1(120,1000,2.5,1.0,"Dif",1,1,12,1,10,0.5)
+\end{lstlisting}
+con la distribución semilla gaussiana sin normalizar y con la traslación implementada:
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/em1_antes_de_normalizar.png}
+    \centering
+     \cprotect\caption{Salida de la deconvolución em1 antes de normalizar la distribución semilla.} 
+\label{plot_em1_antes_de_normalizar}
+\end{figure}
+
+Ahora mostramos la salida del mismo comando anterior, pero con la semilla gaussiana normalizada.
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/em1_despues_de_normalizar.png}
+    \centering
+     \cprotect\caption{Salida de la deconvolución em1 después de normalizar la distribución semilla.} 
+\label{plot_em1_despues_de_normalizar}
+\end{figure}
+
+Veamos como funciona esto para las distribuciones skew normal, de la salida del comando (Simulación 31):
+
+\begin{lstlisting}[language=c++]
+Pretty_EMsimple_em1(120,1000,2.5,1.0,"Dif",1,1,12,3,10,0.5)
+\end{lstlisting}
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/em1_semilla_skew_normal_c1.png}
+    \centering
+     \cprotect\caption{Salida de la deconvolución em1 para una semilla skew normal.} 
+\label{plot_em1_semilla_skew_normal_c1}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/em1_semilla_skew_normal_c2.png}
+    \centering
+     \cprotect\caption{Comparación de flujo deconvolucionado para una semilla skew normal y flujo inventado tipo gaussiano} 
+\label{plot_em1_semilla_skew_normal_c2}
+\end{figure}
+
+De la Fig \ref{plot_em1_semilla_skew_normal_c1} pad 12 vemos que hay un problema con la normalización, ya que debería ser 1 en vez de 9.999. Para el caso anterior Fig \ref{plot_em1_despues_de_normalizar} pad 12, vemos que la normalización funciona. Esto nos sugiere que el problema puede venir de la traslación del flujo skew normal, es especial del SetBin, ya que solo para este tipo de distribuciones hacemos esta traslación.
+
+De todas maneras realizamos una simulación tipo 33, obteniendo el siguiente resultado:
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/plot_deconv_33_shift.png}
+    \centering
+     \cprotect\caption{Simulación 33} 
+\label{plot_deconv_33_shift}
+\end{figure}
+
+Gráfico Simulación 31:
+
+\begin{figure}[H]
+    \includegraphics[width=1.\textwidth]{img/plot_deconv_31_shift.png}
+    \centering
+     \cprotect\caption{Simulación 31 - Semillas skew normal y distribuiciones inventadas gaussianas} 
+\label{plot_deconv_33_shift}
+\end{figure}
+
+\hightodo{2022-03-16: Generar un gráfico de valor de integrales tanto para la simulación 31 y 33, donde en los ejes horizontal y vertical estén los valores correspondientes de la integrales y en el eje $z$ el valor de $\chi^2_c$.}
+
+\hightodo{2022-03-16: Generar mapas de calor, pero variando el centroide del flujo inventado (fijando el ancho) e ir probando con distintos valores de semillas.}
+
+Para generar una simulación 13, es decir, semillas gaussianas y distribuciones inventadas skew normal, debemos trasladar todas las funciones skew normal al centroide 2.5.
+
+Necesitamos implementar que la función \verb|Pretty_EMsimple_em1()| seleccione de forma automática el archivo con los neutrones generados por distribuciones gaussianas o skew normal, esto para no tener que cambiar a mano en la misma función.
+
+
+
 
 %----------------------------------------------------------------------------------------
 %   REFERENCE LIST
@@ -2208,38 +2391,31 @@ El profesor VM sugiere utilizar la nomenclatura de \textit{momentos} para referi
 \begin{tip}
 It is a good idea to record sources that explain concepts or provide tools so the research is both better documented and if someone has to continue with it, there is enough supporting documentation.
 \end{tip}
-\begin{itemize}
-    \item Quick read in DTW and Keogh Lower Bounding
-
-\url{http://alexminnaar.com/time-series-classification-and-clustering-with-python.html}
-
-\url{http://nbviewer.jupyter.org/github/alexminnaar/time-series-classification-and-clustering/blob/master/Time%20Series%20Classification%20and%20Clustering.ipynb}
-    \item Parallelizing DTW -- Good article on making a parallel version of DTW. Uses Keogh lower bound not as a linear approximation but as a pruning device.
-
-    \url{https://www.andrew.cmu.edu/user/mmohta/15418Project/finalreport.html}
-
-    \item Deep Learning
-    \begin{itemize}
-        \item Intro to LSTM
-
-        \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs}
-        
-        \item Intro to CNN
-
-        \url{https://colah.github.io/posts/2014-07-Conv-Nets-Modular/}
-
-        \item Why are LSTMs are so useful, impressive result in character pattern and syntax learning
-
-        \url{https://karpathy.github.io/2015/05/21/rnn-effectiveness/}
-    \end{itemize}
-\end{itemize}
-\section{References}
-\begin{tip}
-Do not forget to cite the papers that you are using in your research, this way the \textbf{Previous Work} part in your paper will be infinitely easier to write when the time comes.
-\end{tip}
-\nocite{*}
-\bibliographystyle{alpha}
-\bibliography{mybib}
+%\begin{itemize}
+%    \item Quick read in DTW and Keogh Lower Bounding
+%
+%\url{http://alexminnaar.com/time-series-classification-and-clustering-with-python.html}
+%
+%\url{http://nbviewer.jupyter.org/github/alexminnaar/time-series-classification-and-clustering/blob/master/Time%20Series%20Classification%20and%20Clustering.ipynb}
+%    \item Parallelizing DTW -- Good article on making a parallel version of DTW. Uses Keogh lower bound not as a linear approximation but as a pruning device.
+%
+%    \url{https://www.andrew.cmu.edu/user/mmohta/15418Project/finalreport.html}
+%
+%    \item Deep Learning
+%    \begin{itemize}
+%        \item Intro to LSTM
+%
+%        \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs}
+%        
+%        \item Intro to CNN
+%
+%        \url{https://colah.github.io/posts/2014-07-Conv-Nets-Modular/}
+%
+%        \item Why are LSTMs are so useful, impressive result in character pattern and syntax learning
+%
+%        \url{https://karpathy.github.io/2015/05/21/rnn-effectiveness/}
+%    \end{itemize}
+%\end{itemize}
 \clearpage
 \section{TO DO}
 \begin{tip}
@@ -2255,5 +2431,17 @@ Here you will have all your TODOs grouped with anchor links to the parts of the 
 \begin{multicols}{2}
 \input{conceptos/conceptos.tex}
 \end{multicols}
+
+\clearpage
+
+\section{References}
+\begin{tip}
+Do not forget to cite the papers that you are using in your research, this way the \textbf{Previous Work} part in your paper will be infinitely easier to write when the time comes.
+\end{tip}
+%\nocite{*} %muestra todas las referencias aunque no esten citadas en el documento
+%\bibliographystyle{alpha}
+\bibliographystyle{ieeetr}
+%\bibliography{mybib}
+\bibliography{library_mendeley_mag}
 
 \end{document}
